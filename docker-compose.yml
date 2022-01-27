@@ -1,0 +1,25 @@
+version: '3'
+
+services:      
+  
+  tileserver:
+    build: ./server
+    ports:
+      - "90:8080"
+    volumes:
+    - "/opt/data:/data"
+    - "./logs/pm2:/root/.pm2/logs"
+    restart: 'always'     
+
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+     - ./nginx/conf.d:/etc/nginx/conf.d
+     - ./nginx/ssl:/etc/ssl        
+     - ./logs/nginx:/var/log/nginx
+    links:   
+     -  "tileserver:tileserver"    
+    ports:
+     - "80:80"
+     - "443:443"  

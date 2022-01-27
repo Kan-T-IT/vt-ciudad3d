@@ -1,0 +1,15 @@
+{
+  "name": "tileserver-nodejs",
+  "version": "1.0.0",
+  "description": "Servidor de tiles en nodejs",
+  "author": "",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^4.1.0"
+  }
+}
